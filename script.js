@@ -1,18 +1,42 @@
-function secondHighest(arr) {
-    // Check if the array is empty or has only 1 element
-    if (arr.length < 2) {
-        return -Infinity;
-    }
+<!DOCTYPE html>
 
-    // Remove duplicate elements and sort the array in descending order
-    const uniqueSortedArr = [...new Set(arr)].sort((a, b) => b - a);
+<html>
 
-    // If all elements are the same or there are fewer than two unique elements, return -Infinity
-    if (uniqueSortedArr.length < 2 || uniqueSortedArr[0] === uniqueSortedArr[1]) {
-        return -Infinity;
-    }
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
 
-    // Return the second-highest element
+<body>	
+	<script>
+		function secondHighest(arr) {
+			//Write your code here
+			if (arr.length <= 1 || new Set(arr).size === 1) {
+    return -Infinity;
+  }
+
+  const uniqueSortedArr = Array.from(new Set(arr)).sort((a, b) => b - a);
+
+  return uniqueSortedArr[1];
+			
+		}
+
+		function Main() {
+			var n = prompt("Enter the number of elements");
+			var arr = [];
+			for (var i = 0; i < n; i++) {
+				arr[i] = prompt("Enter element " + (i+1));
+			}
+			alert(secondHighest(arr));
+		}
+		Main();
+	</script>
+
+    <script type="text/javascript" src="./script.js">
+</script>
+
+</body>
+
+</html>
     return uniqueSortedArr[1];
 }
 
